@@ -7,8 +7,8 @@ int main() {
 
     std::cin >> x >> y;
 
-    r = std::tan(M_PI * (x / y));
-    s = std::pow((x + std::log(1 / x)), 3);
+    r = 1 / std::tan(M_PI * (x / y));
+    s = std::cbrt((x + std::log(1 / x)));
 
     std::cout << r << " " << s << " ";
 

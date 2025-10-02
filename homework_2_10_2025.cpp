@@ -1,8 +1,13 @@
+﻿#define _USE_MATH_DEFINES
+
 #include <algorithm>
 #include <iostream> 
+#include <locale>
 #include <cmath> 
 
 int main() {
+    setlocale(LC_ALL, "Russian");
+
     float x, y, r, s, c;
 
     std::cin >> x >> y;
@@ -15,4 +20,7 @@ int main() {
     c = std::max(r, s);
 
     std::cout << c << "\n";
+
+    system("pause");
+   
 }

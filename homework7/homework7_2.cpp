@@ -2,22 +2,19 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int>* notAinBGreaterThanZero(const std::vector<int> &A, const std::vector<int> &B) {
-    std::vector<int> *res = new std::vector<int>;
-
+void notAinBGreaterThanZero(const std::vector<int> &A, const std::vector<int> &B, std::vector<int> &res) {
     for (int b : B) {
         if (b < 0 || std::find(A.begin(), A.end(), b) != A.end()) {
             continue;
         }
-        res->push_back(b);
+        res.push_back(b);
     }
-
-    return res;
 }
 
 int main() {
     std::vector<int> A;
     std::vector<int> B;
+    std::vector<int> *res;
     int buff;
 
     while (std::cin >> buff) {
@@ -38,7 +35,9 @@ int main() {
         }
     }
 
-    for (int c : *notAinBGreaterThanZero(A, B)) {
+    notAinBGreaterThanZero(A, B, res);
+
+    for (int c : res) {
         std::cout << c << " ";
     }
     std::cout << std::endl;

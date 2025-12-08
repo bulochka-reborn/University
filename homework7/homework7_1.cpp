@@ -7,17 +7,17 @@ void calculateItemsBiggerThanT(const int* arr, const int t, int& c) {
     }
 }
 
-int *findArrayWithMaxItemsBiggerThanT(int *arrA, int *arrB, const int &t) {
+void*findArrayWithMaxItemsBiggerThanT(int *arrA, int *arrB, const int &t, int &*res) {
     int tcA = 0, tcB = 0;
 
     calculateItemsBiggerThanT(arrA, t, tcA);
     calculateItemsBiggerThanT(arrB, t, tcB);
 
     if (tcA > tcB) {
-        return arrA;
+        res = arrA;
     }
 
-    return arrB;
+    res = arrB;
 }
 
 int main() {
@@ -27,8 +27,8 @@ int main() {
 
     int* A = new int[5]; 
     int* B = new int[5];
+    int* res;
 
-    // Ввод массивов
     std::cout << "A:" << std::endl;
     for (int i = 0; i < 5; i++) {
         std::cin >> A[i];
@@ -39,12 +39,12 @@ int main() {
         std::cin >> B[i];
     }
 
+    res = findArrayWithMaxItemsBiggerThanT(A, B, t);
     for (int i = 0; i < 5; i++) {
-        std::cout << findArrayWithMaxItemsBiggerThanT(A, B, t)[i] << " ";
+        std::cout << res[i] << " ";
     }
     std::cout << std::endl;
 
-    // Освобождение выделенной памяти
     delete[] A;
     delete[] B;
 

@@ -1,33 +1,33 @@
 ﻿#include <iostream>
-#include <vector>
+#include <set>
 #include <algorithm>
 
-void notAinBGreaterThanZero(const std::vector<int> &A, const std::vector<int> &B, std::vector<int> &res) {
+void notAinBGreaterThanZero(const std::set<int>& A, const std::set<int>& B, std::set<int>& res) {
     for (int b : B) {
         if (b < 0 || std::find(A.begin(), A.end(), b) != A.end()) {
             continue;
         }
-        res.push_back(b);
+        res.insert(b);
     }
 }
 
 int main() {
-    std::vector<int> A;
-    std::vector<int> B;
-    std::vector<int> *res;
+    std::set<int> A;
+    std::set<int> B;
+    std::set<int> res;
     int buff;
 
     while (std::cin >> buff) {
-        A.push_back(buff);
+        A.insert(buff);
 
         if (std::cin.peek() == '\n') {
-            std::cin.get(); 
+            std::cin.get();
             break;
         }
     }
 
     while (std::cin >> buff) {
-        B.push_back(buff);
+        B.insert(buff);
 
         if (std::cin.peek() == '\n') {
             std::cin.get();

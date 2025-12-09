@@ -17,8 +17,10 @@ int main() {
 
     sf::RenderWindow window(sf::VideoMode(block_size * grid_dim, block_size * grid_dim), "bogoprotivnoe");
 
-    for (int i = 3; i < 7; i++) {
-        for (int j = 3; j < 7 ; j++) {
+    int green_len = (grid_dim - 4) / 2 + 1;
+
+    for (int i = 3; i < 3 + green_len; i++) {
+        for (int j = 3; j < 3 + green_len; j++) {
             grid[i][j].setFillColor(sf::Color(0, 255, 0, 255));
         }
 
@@ -40,7 +42,7 @@ int main() {
                 window.close();
         }
 
-        
+
         window.display();
     }
 
